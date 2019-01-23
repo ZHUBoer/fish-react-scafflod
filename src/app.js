@@ -5,5 +5,5 @@ class IndexComponent extends React.Component{
         return <h1>hello world!!!</h1>
     }
 }
-var oBox = document.getElementById("box");
-ReactDOM.render(<IndexComponent/>,oBox)
+var app = document.getElementById("app");
+ReactDOM.render(<IndexComponent/>, app);

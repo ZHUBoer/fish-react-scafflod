@@ -1,16 +1,13 @@
-const webpack = require('webpack');
 const chalk = require("chalk");
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-/*最上面要增加的声明变量*/
 const HappyPack = require('happypack');
-const os = require('os'); //获取电脑的处理器有几个核心，作为配置传入
+const os = require('os');
 const happyThreadPool = HappyPack.ThreadPool({ size: os.cpus().length });
 const ProgressBarPlugin = require('progress-bar-webpack-plugin');
 
 module.exports = {
     entry: {
         app:__dirname + '/../src/app.js',
-        // vendors:'../src/'
     },
     output:{
         filename: '[name].js',
@@ -53,8 +50,7 @@ module.exports = {
         new HtmlWebpackPlugin({
             template: __dirname + '/../index.html'
         }),
-        /*在`plugins`配置项中需要增加的插件设置*/
-        new HappyPack({ //开启多线程打包
+        new HappyPack({
             id: 'happy-babel-js',
             loaders: ['babel-loader?cacheDirectory=true'],
             threadPool: happyThreadPool
