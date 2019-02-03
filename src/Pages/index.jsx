@@ -1,14 +1,16 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
 import Index from './Pages/index.jsx'
 class Index extends React.Component {
     constructor () {
-
+        super();
+        this.state = {
+            word:"hello world"
+        }
     }
     render () {
         return (
             <div>
-                index
+                {this.state.word}
             </div>
         )
     }
